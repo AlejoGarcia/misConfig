@@ -189,7 +189,7 @@ Inserta el contenido del registro x
 Entra temporalmente en modo *normal* para ejecutar el comando 'x' antes de
 volver a modo insercion
 
-### Esc (or <C c>)
+### Esc (o <C c>)
 Salir del modo insercion
 
 ## Trabajando con multiples ficheros
@@ -209,5 +209,215 @@ Elimina un buffer (cierra un archivo)
 ### :b[uffer]n
 Va al buffer con numero indice 'n'
 
+### :b[uffer] 'file'
+Va al buffer con nombre de archivo 'file'
 
+### :ls (o :buffers)
+Lista todos los buffers abiertos
 
+### :sp[plit] 'file'
+Abre el archivo 'file' en un nuevo buffer y lo coloca en una ventana partida
+verticalmente
+
+### :vs[plit] 'file'
+Abre el archivo 'file' en un nuevo buffer y lo coloca en una ventana partida
+horizontalmente
+
+### :vert[ical] ba[ll]
+Edita todos los buffers como ventanas partidas verticalmente
+
+### :tab ba[ll]
+Edita todos los buffers como tabs
+
+### <C ws>
+Crea ventana horizontal nueva (duplica archivo abierto)
+
+### <C wv>
+Crea ventana vertical nueva (duplica archivo abierto)
+
+### <C ww>
+Cambia entre ventanas (siguiente ventana partida)
+
+### <C wq>
+Elimina una ventana
+
+### <C wx>
+Intercambia ventana actual con la siguiente
+
+### <C w=>
+Hace a todas las ventanas de la misma anchura y altura
+
+### <C w+>
+Mueve la linea de division hacia arriba en ventanas partidas 
+horizontalmente
+
+### <C w->
+Mueve la linea de division hacia abajo en ventanas partidas
+horizontalmente
+
+### <C w<>
+Mueve la linea de division hacia la izquierda en ventanas
+partidas verticalmente
+
+### <C w>>
+Mueve la linea de division hacia la derecha en ventanas partidas
+verticalmente
+
+## <C wh>
+Mueve el cursor a la ventana que se encuentra a la izquierda
+de la actual
+
+### <C wl>
+Mueve el cursor a la ventana que se encuentra a la derecha
+de la actual
+
+### <C wk>
+Mueve el cursor a la ventana que se encuentra encima de la ventana
+actual
+
+### <C wj>
+Mueve el cursor a la ventana que se encuentra debajo de la ventana
+actual
+
+### <C wH>
+Hace la ventana actual de altura maxima y la coloca a la izquierda
+del todo
+
+### <C wJ>
+Hace la ventana actual de anchura maxima y la coloca en la parte 
+superior del todo
+
+### <C wK>
+Hace la ventana actual de anchura maxima y la coloca en la parte
+inferior del todo
+
+### <C wL>
+Hace la ventana actual de altura maxima y la coloca a la derecha
+del todo
+
+## Copiar y pegar
+
+### yy
+Copia una linea
+
+### 2yy
+Copia dos lineas
+
+### yw
+Copia las letras de una palabra desde la posicion actual del cursor hasta
+el inicio de la siguiente (includo el espacio)
+
+### yiw
+Copia la palabra sobre la que se encuentra el cusor (este donde este
+sobre la palabra)
+
+### yaw
+Copia la palabra sobre la que se encuentra el cusor y tambien los 
+espacios en blanco que existan antes y despues de la palabra
+
+### y$
+Copia hasta el final de la linea
+
+### p
+Pega el portapapeles justo despues del cursor
+
+### P
+Pega el cortapapeles antes del cursor
+
+### gp
+Pega el portapapeles despues del cursor y deja el cursor despues del texto
+pegado
+
+### gP
+Pega el portapapeles antes del cursor y deja el cursor despues del texto
+pegado
+
+### dd
+Elimina guardando en portapapeles (cortar) una linea
+
+### 2dd
+Elimina guardando en portapapeles (cortar) dos lineas
+
+### dw
+Corta las letras de la palabra desde donde esta el cursor hasta el inicio
+de la siguiente
+
+### diw
+Corta la palabra sobre la que se encuentra el cursor 
+
+### daw
+Corta la palabra sobre la que se encuentra el cursor incluyendo los espacios
+en blancos antes y despues
+
+### D
+Corta desde la posicion del cursor hasta el final de la linea
+
+### d$
+Corta desde la posicion del cursor hasta el final de la linea
+
+### x
+Corta un solo caracter (sobre el que esta el cursor)
+
+## Indentacion de texto
+
+### >>
+Indenta (hacia la derecha) la linea una tabulacion
+
+### <<
+Deindenta (hacia la izquierda) la linea una tabulacion
+
+### >%
+Indenta un bloque contenido entre parentesis o corchetes (con el cursor sobre
+uno de los simbolos de bloque)
+
+### >ib
+Indenta el bloque interior de unos parentesis
+
+### >at
+Indenta el bloque contenido por <>
+
+### 3==
+Reindenta 3 lineas
+
+### =%
+Reindenta un bloque con parentesis o corchetes (con el cursor sobre uno de 
+esos simbolos de bloque)
+
+### iB
+Reindenta un bloque interno con corchetes
+
+### gg=G
+Reindenta el buffer entero
+
+### ]p
+Pega y ajusta al indentado de esta linea
+
+## Salida
+
+### :w
+Guardar el archivo pero sin salir
+
+### :w !sudo tee %
+Guardar el archivo actual con permiso de administrador
+
+### :wq
+Guardar el archivo actual y salir
+
+### :q
+Salir sin guardar y sin haber cambiado nada en el archivo
+
+### :q! o ZQ
+Salir y deshechar los cambios
+
+### :wqa
+Guarda y sale de todas las tabs abiertas
+
+## Busqueda y reemplazo
+
+### /'patron'
+Busca el texto de 'patron' en todo el buffer
+
+### ?'patron'
+Busca el texto de 'patron' en todo el buffer hacia atras
+
+### \v'patron'
