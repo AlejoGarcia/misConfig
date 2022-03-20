@@ -1,0 +1,19 @@
+
+gem 'airbrake'
+gem 'bourbon'
+gem 'hirefire-resource'
+gem 'dalli'
+gem 'eco'
+gem 'aws-sdk'
+gem 'high_voltage'
+gem 'inherited_resources'
+gem 'cancan_strong_parameters'
+gem 'redis'
+gem 'hirefire', git: 'https://github.com/cpow/hirefire.git', branch 'develop'
+gem 'ckeditor'
+
+group :assets do
+  gem 'coffee-rails'
+  gem 'sass-rails'
+  gem 'uglifier'
+end
