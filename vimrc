@@ -56,6 +56,10 @@ set undofile
 " Ilumina la busqueda a medida que se introduce
 set incsearch
 
+" Establece el fondo transparente
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
+
 " Muestra los numeros relativos de fila
 set rnu
 
@@ -77,6 +81,11 @@ let g:polyglot_disabled = ['sensible']
 
 " Iniciamos el manejador de plugins Plug
 call plug#begin('~/.vim/plugged')
+
+" Instalacion de temas de color
+" Esquema de color onehalf
+Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
+Plug 'junegunn/fzf.vim'
 
 " Instalacion de temas de color
 " Esquema de color onehalf
@@ -108,8 +117,12 @@ Plug 'ayu-theme/ayu-vim'
 
 " Esquema de color vim-one
 Plug 'kyoz/purify', {'rtp': 'vim'}
+
 " Esquema de color vim-one
 Plug 'dracula/vim', {'as': 'dracula'}
+
+" Esquema de color vim-atom-dark
+Plug 'gosukiwi/vim-atom-dark'
 
 Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-fugitive'
@@ -124,7 +137,10 @@ Plug 'drewtempelmeyer/palenight.vim'
 " Poliglot para el remarcado de distintos lenguajes
 Plug 'sheerun/vim-polyglot'
 
-
+" Instalamos vim hard mode para practicar y forzar movimientos inteligentes
+Plug 'dusans/vim-hardmode'
+" Activamos hardmode
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 " Añadir mis plugins 'surround' 'commentary' 'fugitive' 'replacewithregister' 'titlecase'
 " 'sort-motion' 'system-copy' 'vim-textobj-user'
 Plug 'tpope/vim-surround'
@@ -147,9 +163,8 @@ Plug 'vim-airline/vim-airline'
 
 call plug#end()
 
-
-colorscheme onehalf
-
+colorscheme onehalfdark
+" colorscheme onehalfdark
 
 if executable('rg')
     let g:rg_derive_root='true'
@@ -172,6 +187,11 @@ nnoremap <leader>tl :tabnext<CR>
 nnoremap <leader>th :tabprev<CR>
 nnoremap <leader>tx :tabclose<CR>
 nnoremap <leader>ss :w<CR>:source %<CR>
+nnoremap <leader>ff :Files ~<CR>
+nnoremap <leader>bb :Buffers<CR>
+nnoremap <C-p>      :Files<CR>
+nnoremap <leader>sh :call EasyMode()<CR>
+nnoremap <leader>sH :call HardMode()<CR>
 nnoremap <leader>wv :vs<CR>
 nnoremap <leader>ws :sp<CR>
 nnoremap <leader>wh :wincmd h<CR>
