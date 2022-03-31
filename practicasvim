@@ -1,0 +1,10 @@
+Este documento esta destinado unicamente a practicar con vim en
+diversas facetas del uso de este programa. A que tal va.
+
+Los "hola" verbos de vim que ya conozco son:
+    * Borrar: d
+    * Cambiar: c
+    * Copiar: y
+    * Seleccionar: v
+    * Ir a sitios: g
+    * 
