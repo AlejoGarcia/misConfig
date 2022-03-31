@@ -1,7 +1,7 @@
 if has('python3')
-endif
+endif " arreglo para python3
 
-syntax on
+syntax on " colores para sintaxis activados
 
 " Evitamos ser compatibles con VI para usar al máximo VIM
 set nocompatible
@@ -23,7 +23,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 
 " Cambia los tabuladores por el numero de espacios equivalente (asi no hay
-" tabulaciones en el documento
+" tabulaciones en el documento)
 set expandtab
 
 " Mantiene el indentado actual 
@@ -41,7 +41,7 @@ set nowrap
 set smartcase 
 
 " Evita que se cree un archivo temporal con los cambios (asi no hay archivos
-" extraños en el directorio
+" extraños en el directorio)
 set noswapfile
 
 " Evita crear backups de los archivos abiertos
@@ -59,6 +59,9 @@ set incsearch
 " Establece el fondo transparente
 autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
+
+" Activa constantemente la linea de estatus de vim
+set laststatus=2
 
 " Muestra los numeros relativos de fila
 set rnu
@@ -176,11 +179,12 @@ let g:netrw_browse_split=2
 let g:netrw_banner=0
 let g:netrw_winsizze=25
 
-let g:ctrlp_use_cachung=0
+let g:ctrlp_use_caching=0
 
 " Mis keymaps (auto explicativos)
 nnoremap <C-a> k :w <CR> :! make run <CR>
 inoremap <C-a> <Esc> k :w <CR> :! make run <CR>
+vnoremap . :norm.<CR>
 imap jk <Esc>
 nnoremap <leader>tn :tabnew<Space> 
 nnoremap <leader>tl :tabnext<CR>
@@ -202,3 +206,6 @@ nnoremap <leader>wH :wincmd H<CR>
 nnoremap <leader>wJ :wincmd J<CR>
 nnoremap <leader>wK :wincmd K<CR>
 nnoremap <leader>wL :wincmd L<CR>
+nnoremap <leader>w< :vertical resize -10<CR>
+nnoremap <leader>w> :vertical resize +10<CR>
+
