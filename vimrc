@@ -40,6 +40,9 @@ set nowrap
 " inteligente
 set smartcase 
 
+" Ignora las mayusculas en las busquedas
+set ignorecase
+
 " Evita que se cree un archivo temporal con los cambios (asi no hay archivos
 " extraños en el directorio)
 set noswapfile
