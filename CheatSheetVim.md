@@ -215,7 +215,7 @@ Va al buffer con nombre de archivo 'file'
 ### :ls (o :buffers)
 Lista todos los buffers abiertos
 
-### :sp[plit] 'file'
+### :sp[lit] 'file'
 Abre el archivo 'file' en un nuevo buffer y lo coloca en una ventana partida
 verticalmente
 
