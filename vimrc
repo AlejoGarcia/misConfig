@@ -197,11 +197,13 @@ nnoremap <leader>tl :tabnext<CR>
 nnoremap <leader>th :tabprev<CR>
 nnoremap <leader>tx :tabclose<CR>
 nnoremap <leader>ss :w<CR>:source %<CR>
-nnoremap <leader>so :w <CR> :edit ~/.vimrc <CR>
+nnoremap <leader>so :edit ~/.vimrc<CR>
 nnoremap <leader>fh :FZF --hidden<CR>
 nnoremap <leader>ff :Files<CR>
 nmap <C-P> :FZF<CR>
 nnoremap <leader>bb :Buffers<CR>
+nnoremap <leader>bl :bn <CR>
+nnoremap <leader>bh :bp <CR>
 nnoremap <leader>sh :call EasyMode()<CR>
 nnoremap <leader>sH :call HardMode()<CR>
 nnoremap <leader>wv :vs<CR>
