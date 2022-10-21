@@ -1,9 +1,7 @@
 if has('python3')
 endif " arreglo para python3
-syntax on " colores para sintaxis activados
 
-" Activamos hardmode
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+syntax on " colores para sintaxis activados
 
 " Evitamos ser compatibles con VI para usar al máximo VIM
 set nocompatible
@@ -60,6 +58,10 @@ set undofile
 
 " Ilumina la busqueda a medida que se introduce
 set incsearch
+
+" Establece el fondo transparente
+autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Activa constantemente la linea de estatus de vim
 set laststatus=2
@@ -141,11 +143,10 @@ Plug 'drewtempelmeyer/palenight.vim'
 " Poliglot para el remarcado de distintos lenguajes
 Plug 'sheerun/vim-polyglot'
 
-" Vim transparent para controlar la transparencia de vim
-Plug 'tribela/vim-transparent'
-
 " Instalamos vim hard mode para practicar y forzar movimientos inteligentes
 Plug 'dusans/vim-hardmode'
+" Activamos hardmode
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 " Añadir mis plugins 'surround' 'commentary' 'fugitive' 'replacewithregister' 'titlecase'
 " 'sort-motion' 'system-copy' 'vim-textobj-user'
 Plug 'tpope/vim-surround'
@@ -184,24 +185,18 @@ let g:netrw_winsizze=25
 let g:ctrlp_use_caching=0
 
 " Mis keymaps (auto explicativos)
-nnoremap <leader>cl :w <CR> :! lua % <CR>
-nnoremap <leader>cmm :w <CR> :! make <CR>
-nnoremap <leader>cmr :w <CR> :! make run <CR>
-nnoremap <leader>cmc :w <CR> :! make clear <CR>
-nnoremap <leader>cmca :w <CR> :! make all <CR>
+nnoremap <C-a> k :w <CR> :! make run <CR>
+inoremap <C-a> <Esc> k :w <CR> :! make run <CR>
 vnoremap . :norm.<CR>
 imap jk <Esc>
-nnoremap <leader>tt :TransparentToggle<CR>
 nnoremap <leader>tn :tabnew<Space> 
 nnoremap <leader>tl :tabnext<CR>
 nnoremap <leader>th :tabprev<CR>
 nnoremap <leader>tx :tabclose<CR>
 nnoremap <leader>ss :w<CR>:source %<CR>
-nnoremap <leader>so :w <CR> :edit ~/.vimrc <CR>
-nnoremap <leader>fh :FZF --hidden<CR>
-nnoremap <leader>ff :Files<CR>
-nmap <C-P> :FZF<CR>
+nnoremap <leader>ff :Files ~<CR>
 nnoremap <leader>bb :Buffers<CR>
+nnoremap <C-p>      :Files<CR>
 nnoremap <leader>sh :call EasyMode()<CR>
 nnoremap <leader>sH :call HardMode()<CR>
 nnoremap <leader>wv :vs<CR>
@@ -216,6 +211,4 @@ nnoremap <leader>wK :wincmd K<CR>
 nnoremap <leader>wL :wincmd L<CR>
 nnoremap <leader>w< :vertical resize -10<CR>
 nnoremap <leader>w> :vertical resize +10<CR>
-inoremap <leader><Esc> \
-inoremap <leader><leader>z <
-inoremap <leader><leader>x >
+
